@@ -34,7 +34,7 @@ def fixed(balance, annualInterestRate):
     result = upperBound
     initBalance = balance
 
-    while (upperBound - lowerBound) >= 0.001:
+    while (upperBound - lowerBound) >= 0.003:
         monthlyFix = (lowerBound + upperBound) / 2.0
         balance = initBalance
 
