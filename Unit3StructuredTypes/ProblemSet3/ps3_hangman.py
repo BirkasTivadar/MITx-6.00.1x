@@ -83,30 +83,46 @@ def getAvailableLetters(lettersGuessed):
     return ''.join([letter for letter in string.ascii_lowercase if letter not in lettersGuessed])
 
 
+def checkLetter(letter, lettersGuessed, numberOfChance, secretWord):
+    separator = '-------------'
+    if letter not in secretWord and letter not in lettersGuessed:
+        numberOfChance -= 1
+        lettersGuessed.append(letter)
+        print('Oops! That letter is not in my word:', getGuessedWord(secretWord, lettersGuessed))
+        print(separator)
+    elif letter not in lettersGuessed:
+        lettersGuessed.append(letter)
+        print('Good guess:', getGuessedWord(secretWord, lettersGuessed))
+        print(separator)
+    else:
+        print("Oops! You've already guessed that letter:", getGuessedWord(secretWord, lettersGuessed))
+        print(separator)
+    return numberOfChance
+
+
 def hangman(secretWord):
     '''
     secretWord: string, the secret word to guess.
 
     Starts up an interactive game of Hangman.
 
-    * At the start of the game, let the user know how many 
+    * At the start of the game, let the user know how many
       letters the secretWord contains.
 
     * Ask the user to supply one guess (i.e. letter) per round.
 
-    * The user should receive feedback immediately after each guess 
+    * The user should receive feedback immediately after each guess
       about whether their guess appears in the computers word.
 
-    * After each round, you should also display to the user the 
-      partially guessed word so far, as well as letters that the 
+    * After each round, you should also display to the user the
+      partially guessed word so far, as well as letters that the
       user has not yet guessed.
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    separator = '-------------'
     print('Welcome to the game Hangman!')
     print('I am thinking of a word that is', len(secretWord), 'letters long.')
-    print(separator)
+    print('-------------')
 
     numberOfChance = 8
     lettersGuessed = []
@@ -116,18 +132,7 @@ def hangman(secretWord):
         letterGuess = input('Please guess a letter: ')
         letter = letterGuess.lower()
 
-        if letter not in secretWord and letter not in lettersGuessed:
-            numberOfChance -= 1
-            lettersGuessed.append(letter)
-            print('Oops! That letter is not in my word:', getGuessedWord(secretWord, lettersGuessed))
-            print(separator)
-        elif letter not in lettersGuessed:
-            lettersGuessed.append(letter)
-            print('Good guess:', getGuessedWord(secretWord, lettersGuessed))
-            print(separator)
-        else:
-            print("Oops! You've already guessed that letter:", getGuessedWord(secretWord, lettersGuessed))
-            print(separator)
+        numberOfChance = checkLetter(letter, lettersGuessed, numberOfChance, secretWord)
 
         if isWordGuessed(secretWord, lettersGuessed):
             print('Congratulations, you won!')
