@@ -14,7 +14,7 @@ We want to write some simple procedures that work on dictionaries to return info
 
 First, write a procedure, called how_many, which returns the sum of the number of values associated with a dictionary. For example:
 
->>> print(how_many(animals))
+>> print(how_many(animals))
 6
 """
 
