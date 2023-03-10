@@ -154,8 +154,13 @@ def updateHand(hand, word):
     """
     result = hand.copy()
     for letter in word:
-        result[letter] -= 1
+        modifyHandByLetter(result, letter)
     return result
+
+def modifyHandByLetter(result, letter):
+    result[letter] -= 1
+    if result[letter] == 0:
+        del result[letter]
 
 
 #
@@ -177,10 +182,10 @@ def isValidWord(word, hand, wordList):
 
     testHand = hand.copy()
     for letter in word:
-        if testHand.get(letter) == 0 or letter not in testHand.keys():
+        if letter not in testHand.keys():
             return False
         else:
-            testHand[letter] -= 1
+            modifyHandByLetter(testHand, letter)
 
     return True
 
