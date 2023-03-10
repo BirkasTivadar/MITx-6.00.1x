@@ -117,6 +117,8 @@ Test the updateHand() implementation.
 test_isValidWord()
 Test the isValidWord() implementation.
 
+
+Problem 1 - Word Scores
 The first step is to implement some code that allows us to calculate the score for a single word. The function getWordScore should accept as input a string of lowercase letters (a word) and return the integer score for that word, using the game's scoring rules.
 
 A Reminder of the Scoring Rules
@@ -139,8 +141,8 @@ Do not assume that there are always 7 letters in a hand! The parameter n is the 
 Testing: If this function is implemented properly, and you run test_ps4a.py, you should see that the test_getWordScore() tests pass. Also test your implementation of getWordScore, using some reasonable English words.
 Fill in the code for getWordScore in ps4a.py and be sure you've passed the appropriate tests in test_ps4a.py before pasting your function definition here.
 
-Problem 2 - Dealing with Hands
 
+Problem 2 - Dealing with Hands
 **Please read this problem entirely!!** The majority of this problem consists of learning how to read code, which is an incredibly useful and important skill. At the end, you will implement a short function. Be sure to take your time on this problem - it may seem easy, but reading someone else's code can be challenging and this is an important exercise.
 
 Representing hands
@@ -193,5 +195,13 @@ You may wish to review the ".copy" method of Python dictionaries (review this an
 Your implementation of updateHand should be short (ours is 4 lines of code). It does not need to call any helper functions.
 
 
+Problem 3 - Valid Words
+At this point, we have written code to generate a random hand and display that hand to the user. We can also ask the user for a word (Python's input) and score the word (using your getWordScore). However, at this point we have not written any code to verify that a word given by a player obeys the rules of the game. A valid word is in the word list; and it is composed entirely of letters from the current hand. Implement the isValidWord function.
+
+Testing: Make sure the test_isValidWord tests pass. In addition, you will want to test your implementation by calling it multiple times on the same hand - what should the correct behavior be? Additionally, the empty string ('') is not a valid word - if you code this function correctly, you shouldn't need an additional check for this condition.
+
+Fill in the code for isValidWord in ps4a.py and be sure you've passed the appropriate tests in test_ps4a.py before pasting your function definition here.
 
 
+Problem 4 - Hand Length
+We are now ready to begin writing the code that interacts with the player. We'll be implementing the playHand function. This function allows the user to play out a single hand. First, though, you'll need to implement the helper calculateHandlen function, which can be done in under five lines of code.
