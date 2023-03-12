@@ -34,7 +34,7 @@ def loadWords():
     for line in inFile:
         wordList.append(line.strip().lower())
     print("  ", len(wordList), "words loaded.")
-    return wordList
+    return set(wordList)
 
 
 def getFrequencyDict(sequence):
@@ -291,4 +291,3 @@ def playGame(wordList):
 if __name__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
-

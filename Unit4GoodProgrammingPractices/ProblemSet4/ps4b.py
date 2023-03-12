@@ -76,7 +76,7 @@ def compPlayHand(hand, wordList, n):
         if word == None:
             # End the game (break out of the loop)
             break
-            
+
         # Otherwise (the input is not a single period):
         else :
             # If the word is not valid:
@@ -85,17 +85,17 @@ def compPlayHand(hand, wordList, n):
                 break
             # Otherwise (the word is valid):
             else :
-                # Tell the user how many points the word earned, and the updated total score 
+                # Tell the user how many points the word earned, and the updated total score
                 score = getWordScore(word, n)
                 totalScore += score
-                print('"' + word + '" earned ' + str(score) + ' points. Total: ' + str(totalScore) + ' points')              
+                print('"' + word + '" earned ' + str(score) + ' points. Total: ' + str(totalScore) + ' points')
                 # Update hand and show the updated hand to the user
                 hand = updateHand(hand, word)
                 print()
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
     print('Total score: ' + str(totalScore) + ' points.')
 
-    
+
 #
 # Problem #6: Playing a game
 #
@@ -136,3 +136,7 @@ if __name__ == '__main__':
     playGame(wordList)
 
 
+compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
+compPlayHand({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
+compPlayHand({'a': 2, 'e': 2, 'i': 2, 'm': 2, 'n': 2, 't': 2}, wordList, 12)
+compPlayHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
