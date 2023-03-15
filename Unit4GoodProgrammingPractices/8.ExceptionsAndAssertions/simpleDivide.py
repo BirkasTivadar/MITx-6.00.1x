@@ -1,6 +1,6 @@
 """
 Exercise: simple divide
-0.0/5.0 puntos (calificado)
+
 ESTIMATED TIME TO COMPLETE: 4 minutes
 
 Suppose we rewrite the FancyDivide function to use a helper function.
