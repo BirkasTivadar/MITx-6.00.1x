@@ -82,12 +82,14 @@ class Hand(object):
         word: string
         returns: Boolean (if the word was or was not made)
         """
+        handCopy = self.hand.copy()
         for letter in word:
             if letter not in self.hand.keys():
                 return False
-            self.hand[letter] -= 1
-            if self.hand[letter] == 0:
-                del self.hand[letter]
+            handCopy[letter] -= 1
+            if handCopy[letter] == 0:
+                del handCopy[letter]
+        self.hand = handCopy.copy()
         return True
 
 
