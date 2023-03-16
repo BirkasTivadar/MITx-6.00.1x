@@ -89,7 +89,7 @@ class Hand(object):
             handCopy[letter] -= 1
             if handCopy[letter] == 0:
                 del handCopy[letter]
-        self.hand = handCopy.copy()
+        self.hand = handCopy
         return True
 
 
