@@ -1,7 +1,6 @@
 # The 6.00 Word Game
 
 import random
-import string
 
 VOWELS = 'aeiou'
 CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
