@@ -41,6 +41,7 @@ def compChooseWord(hand, wordList, n):
     # return the best word you found.
     return bestWord
 
+
 #
 # Computer plays a hand
 #
@@ -66,7 +67,7 @@ def compPlayHand(hand, wordList, n):
     # Keep track of the total score
     totalScore = 0
     # As long as there are still letters left in the hand:
-    while (calculateHandlen(hand) > 0) :
+    while (calculateHandlen(hand) > 0):
         # Display the hand
         print("Current Hand: ", end=' ')
         displayHand(hand)
@@ -78,13 +79,13 @@ def compPlayHand(hand, wordList, n):
             break
 
         # Otherwise (the input is not a single period):
-        else :
+        else:
             # If the word is not valid:
-            if (not isValidWord(word, hand, wordList)) :
+            if (not isValidWord(word, hand, wordList)):
                 print('This is a terrible error! I need to check my own code!')
                 break
             # Otherwise (the word is valid):
-            else :
+            else:
                 # Tell the user how many points the word earned, and the updated total score
                 score = getWordScore(word, n)
                 totalScore += score
@@ -124,10 +125,33 @@ def playGame(wordList):
 
     wordList: list (string)
     """
-    # TO DO... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this when you code this function
+    initialHand = {}
+    n = HAND_SIZE
+    while True:
+        respond = input('\nEnter n to deal a new hand, r to replay the last hand, or e to end game: ')
+        if respond == "e":
+            return
+        if respond != "e" and respond != "n" and respond != "r":
+            print('Invalid command.')
+            continue
+        if respond == "n":
+            initialHand = dealHand(n)
+        if initialHand == {}:
+            print('You have not played a hand yet. Please play a new hand first!')
+            continue
+        while respond != "c" or respond != "u":
+            print()
+            respond = input('Enter u to have yourself play, c to have the computer play: ')
+            if respond == "u":
+                playHand(initialHand, wordList, n)
+                break
+            if respond == "c":
+                compPlayHand(initialHand, wordList, n)
+                break
+            else:
+                print('Invalid command.')
 
-        
+
 #
 # Build data structures used for entire session and play game
 #
@@ -135,8 +159,7 @@ if __name__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
 
-
-compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
-compPlayHand({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
-compPlayHand({'a': 2, 'e': 2, 'i': 2, 'm': 2, 'n': 2, 't': 2}, wordList, 12)
-compPlayHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
+# compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
+# compPlayHand({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
+# compPlayHand({'a': 2, 'e': 2, 'i': 2, 'm': 2, 'n': 2, 't': 2}, wordList, 12)
+# compPlayHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
