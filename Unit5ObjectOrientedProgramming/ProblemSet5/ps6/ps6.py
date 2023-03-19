@@ -169,7 +169,6 @@ class PlaintextMessage(Message):
         self.encrypting_dict = self.build_shift_dict(shift)
         self.message_text_encrypted = self.apply_shift(shift)
 
-
     def get_shift(self):
         '''
         Used to safely access self.shift outside of the class
