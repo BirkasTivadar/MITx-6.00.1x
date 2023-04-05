@@ -14,15 +14,27 @@ for i in range(30):
     myExponential.append(1.5 ** i)
 
 plt.figure('lin')
+plt.title('Linear')
+plt.xlabel('sample points')
+plt.ylabel('linear function')
 plt.plot(mySamples, myLinear)
 
 plt.figure('quad')
+plt.title('Quadratic')
+plt.xlabel('sample points')
+plt.ylabel('quadratic function')
 plt.plot(mySamples, myQuadratic)
 
 plt.figure('cub')
+plt.title('Cubic')
+plt.xlabel('sample points')
+plt.ylabel('cubic function')
 plt.plot(mySamples, myCubic)
 
 plt.figure('exp')
+plt.title('Exponential')
+plt.xlabel('sample points')
+plt.ylabel('exponential function')
 plt.plot(mySamples, myExponential)
 
 plt.show()
